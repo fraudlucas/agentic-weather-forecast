@@ -169,7 +169,7 @@ Phase 1: Single Agent
 
 Phase 2: Service Layer
 
-- [ ] Add a REST API around the graph.
+- [x] Add a REST API around the graph.
 - [ ] Introduce request and response models for weather conversations.
 - [ ] Add a BFF layer for a future web or mobile client.
 - [ ] Replace hardcoded local prompts with runtime input.
