@@ -1,10 +1,14 @@
 from langchain_core.tools import tool
 from geopy.geocoders import Nominatim
 from pydantic import BaseModel, Field
+from functools import lru_cache
 
 import requests
 
-geolocator = Nominatim(user_agent="weather-app")
+
+@lru_cache(maxsize=1)
+def _get_geolocator():
+    return Nominatim(user_agent="weather-app")
 
 
 class SearchInput(BaseModel):
@@ -23,6 +27,7 @@ def get_weather_forecast(location: str, date: str):
     Returns:
         A dict with the time and temperature for each hour.
     """
+    geolocator = _get_geolocator()
 
     location_point  = geolocator.geocode(location)
 
