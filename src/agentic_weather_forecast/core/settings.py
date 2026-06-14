@@ -1,4 +1,15 @@
-import os
+from pydantic_settings import BaseSettings
 
 
-api_key = os.getenv("GEMINI_API_KEY")
+class Settings(BaseSettings):
+    """Environment Settings"""
+    
+    gemini_api_key: str = ""
+    
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8"
+    }
+
+
+env_settings = Settings()

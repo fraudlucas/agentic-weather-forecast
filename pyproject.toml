@@ -9,6 +9,7 @@ dependencies = [
     "ipython>=9.14.1",
     "langchain-google-genai>=4.2.5",
     "langgraph>=1.2.5",
+    "pydantic-settings>=2.14.1",
     "requests>=2.34.2",
 ]
 

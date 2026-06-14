@@ -1,11 +1,14 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-from agentic_weather_forecast.core.settings import api_key
+from agentic_weather_forecast.core.settings import env_settings
 from agentic_weather_forecast.tools.weather_forecast import get_weather_forecast
 
 
 def build_model():
     """Create the Gemini chat model with weather tools bound."""
+
+    api_key = env_settings.gemini_api_key
+
     if not api_key:
         raise RuntimeError("Set GEMINI_API_KEY before running the Gemini smoke test.")
 
