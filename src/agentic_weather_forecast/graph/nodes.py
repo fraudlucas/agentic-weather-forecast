@@ -3,7 +3,7 @@ from langchain_core.runnables import RunnableConfig
 
 from agentic_weather_forecast.tools.weather_forecast import tools
 from agentic_weather_forecast.graph.state import AgentState
-from agentic_weather_forecast.llm.gemini_client import llm_agent
+from agentic_weather_forecast.llm.gemini_client import get_llm_agent
 
 
 tools_by_name = {tool.name: tool for tool in tools}
@@ -31,7 +31,7 @@ def call_model(
     config: RunnableConfig,
 ):
     # Invoke the model with the system prompt and the messages
-    response = llm_agent.invoke(state["messages"], config)
+    response = get_llm_agent().invoke(state["messages"], config)
     # This returns a list, which combines with the existing messages state
     # using the add_messages reducer.
     return {"messages": [response], "steps": state.get("steps", 0) + 1}
