@@ -14,6 +14,13 @@ dependencies = [
     "requests>=2.34.2",
 ]
 
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=7.1.0",
+    "pytest-mock>=3",
+]
+
 [project.scripts]
 agentic-weather-forecast = "agentic_weather_forecast.__main__:main"
 
