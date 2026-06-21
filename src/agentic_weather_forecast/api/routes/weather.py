@@ -2,9 +2,10 @@ from fastapi import APIRouter, Query, HTTPException
 
 from agentic_weather_forecast.api.schemas import ChatResponse
 from agentic_weather_forecast.api.parser import langchain_to_pydantic
-from agentic_weather_forecast.graph.workflow import graph
+from agentic_weather_forecast.graph.workflow import build_graph
 
 router = APIRouter()
+graph = build_graph()
 
 
 @router.get("/weather", response_model=ChatResponse)

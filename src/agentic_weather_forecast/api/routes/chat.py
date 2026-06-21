@@ -5,9 +5,10 @@ from agentic_weather_forecast.api.parser import (
     langchain_to_pydantic,
     pydantic_to_langchain,
 )
-from agentic_weather_forecast.graph.workflow import graph
+from agentic_weather_forecast.graph.workflow import build_graph
 
 router = APIRouter()
+graph = build_graph()
 
 
 @router.post("/chat", response_model=ChatResponse)
